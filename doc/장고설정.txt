@@ -54,3 +54,35 @@ python manage.py createsuperuser
 
 
  [장고 프로젝트의 Application 만들기 ]
+
+ 1. Application 들의 통합 templates 디렉토리 만들기
+        1)django_practices(프로젝트 루트)
+                |---- templates
+        2)settings.py에 설정작업
+       TEMPLATES = 설정에 import해준뒤 os.path.join(BASE_DIR, 'templates')
+
+ 2. helloworld Application 만들기
+    1) 터미널에서
+        # python manage.py startapp helloworld
+     2) template/helloworld 디렉토리 생성
+     3) Application 등록
+        setting.py 의 INSTALLED_APPS 에 추가한다.
+
+ 3. emaillist Application 만들기
+    1) 터미널에서
+        # python manage.py startapp emaillist
+     2) template/emaillist 디렉토리 생성
+     3) Application 등록
+        setting.py 의 INSTALLED_APPS 에 추가한다.
+     --------------------------------------------------------------------
+
+
+     --------------------------------------------------------------------
+
+
+ 4. guestbook Application 만들기
+    1) 터미널에서
+        # python manage.py startapp guestbook
+    2) template/guestbook 디렉토리 생성
+    3) Application 등록
+        setting.py 의 INSTALLED_APPS 에 추가한다.
