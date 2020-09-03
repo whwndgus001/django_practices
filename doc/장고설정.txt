@@ -75,8 +75,40 @@ python manage.py createsuperuser
      3) Application 등록
         setting.py 의 INSTALLED_APPS 에 추가한다.
      --------------------------------------------------------------------
+     4) /hello url mapping
+     (urls.py)에서
+     from django.contrib import admin
+            from django.urls import path
+            import helloworld.views as helloworld_views
 
+            urlpatterns = [
+                path('hello/', helloworld_views.hello),
+                path('hello2/', helloworld_views.hello2),
+                path('hello3/', helloword_views.hello3),
+                path('admin/', admin.site.urls),
+                ]
+      helloworld 디렉토리에서 hello.html 생성
+          body
+          <h1>Hello World</h1>
+    <a href="/hello2">Hello world2</a>
+    hello2.html 생성
+    body
+        <h1>Hello World2</h1>
+    <a href="/hello">Hello World</a>
+    hello3.html 생성
+         <h1>{{n}}님 안녕하세요.</h1>
+    <a href="/hello">메인으로 가기</a>
+      이후 view. py에서
+     from django.shortcuts import render
 
+        def hello(request):
+            return render(request, 'helloworld/hello.html')
+        def hello2(request):
+            return render(request, 'helloworld/hello2.html')
+        def hello3(request):
+            name = request.GET['name']
+            data = {'n': name}
+            return render(request, 'helloworld/hello3.html', data) 입력
      --------------------------------------------------------------------
 
 
