@@ -64,18 +64,20 @@ python manage.py createsuperuser
  2. helloworld Application 만들기
     1) 터미널에서
         # python manage.py startapp helloworld
-     2) template/helloworld 디렉토리 생성
+     2) templates/helloworld 디렉토리 생성
      3) Application 등록
         setting.py 의 INSTALLED_APPS 에 추가한다.
 
  3. emaillist Application 만들기
     1) 터미널에서
         # python manage.py startapp emaillist
-     2) template/emaillist 디렉토리 생성
+     2) templates/emaillist 디렉토리 생성
      3) Application 등록
         setting.py 의 INSTALLED_APPS 에 추가한다.
      --------------------------------------------------------------------
-     4) /hello url mapping
+     4) /hello url mapping (urls.py) url <---> view의 함수
+     5) view 함수에서 templates에 data전달 및 render 결과 반환
+     ---------------------------------------------------------------------
      (urls.py)에서
      from django.contrib import admin
             from django.urls import path
@@ -104,7 +106,7 @@ python manage.py createsuperuser
         def hello(request):
             return render(request, 'helloworld/hello.html')
         def hello2(request):
-            return render(request, 'helloworld/hello2.html')
+            return render(request, 'helloworld/hello2.html')g
         def hello3(request):
             name = request.GET['name']
             data = {'n': name}
